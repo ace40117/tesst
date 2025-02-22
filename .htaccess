@@ -1,0 +1,11 @@
+<IfModule mod_mime.c>
+  AddEncoding gzip .gz
+  AddType "text/javascript" .gz
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.gz$">
+    Header set Content-Encoding gzip
+    Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
+</IfModule>
